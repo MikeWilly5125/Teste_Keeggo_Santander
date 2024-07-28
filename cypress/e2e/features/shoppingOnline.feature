@@ -1,5 +1,7 @@
 Feature: Realizar fluxo de manejo de produto
+
     //OBS: realizar o npm install via terminal para baixar todas as dependencias
+    
     Background: Acessar URL da aplicacao https://advantageonlineshopping.com/
         Given que acesso URL da aplicacao
 
