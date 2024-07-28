@@ -12,11 +12,12 @@ Feature: Realizar fluxo de API Shopping Online
     #     | 14     | Logitech USB Headset H390 | 
 
     Scenario Outline: Shopping Online alterar imagem de Produtos
-        Given crio uma nova conta '<email>' '<nome>' '<sobreNome>' '<nomeLogin>' '<telefone>' '<password>' 
+        # Given crio uma nova conta '<email>' '<nome>' '<sobreNome>' '<nomeLogin>' '<telefone>' '<password>' 
         And Realizo o login '<email>' '<loginPassword>' '<loginUser>'
         And Realizo a atualizacao do produto
         # And Verificar se a lista exibe somente produtos conforme busca '<ID>' '<produto>'
         # Then Valido o status code com o produto '<ID>' 
+        Given Realizo a busca por um ptoduto '<ID>'
 
     Examples:
         | ID | produto                    | nome  | sobreNome | nomeLogin | telefone    | password    |email                         |loginPassword |loginUser |

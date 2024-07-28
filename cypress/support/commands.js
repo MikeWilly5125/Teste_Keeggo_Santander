@@ -23,3 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+
+// Cypress.Commands.add('getToken' , (email, loginPassword, loginUser) => {
+
+//     cy.api({
+//         url: `https://www.advantageonlineshopping.com/accountservice/accountrest/api/v1/login`,
+//         method:'POST',
+//         body: {
+//             email: `${email}`,
+//             loginPassword: `${loginPassword}`,
+//             loginUser: `${loginUser}`
+//         }
+
+//     }).then(res => {
+//          return res.body.statusMessage.token
+//     })
+
+    
+
+// });
