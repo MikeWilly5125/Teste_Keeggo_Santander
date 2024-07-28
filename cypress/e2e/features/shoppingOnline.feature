@@ -1,5 +1,5 @@
 Feature: Realizar fluxo de API Shopping Online
-
+//OBS: realizar o npm install via terminal para baixar ptdas as dependencias
     # Scenario Outline: Shopping Online busca de Produtos
     #     Given Realizo a busca por um ptoduto '<ID>'
     #     And Verificar se a lista exibe somente produtos conforme busca '<ID>' '<produto>'
