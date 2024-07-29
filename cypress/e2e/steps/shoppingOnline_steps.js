@@ -1,5 +1,4 @@
 import ShoppingOnline_API from "../pages/shoppingOnline_page";
-
 const ShoppingOnline_pages = new ShoppingOnline_API
 
 Given("Realizo a busca por um ptoduto {string}", (ID) => {
@@ -11,7 +10,6 @@ And("Verificar se a lista exibe somente produtos conforme busca {string} {string
 	ShoppingOnline_pages.AssertProduto(ID, produto)
 
 });
-
 
 Then("Valido o status code com o produto {string}", (ID) => {
 	ShoppingOnline_pages.assertStatusCode(ID)

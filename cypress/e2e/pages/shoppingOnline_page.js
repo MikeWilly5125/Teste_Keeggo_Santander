@@ -7,42 +7,42 @@ class ShoppingOnline_API {
 
     // Estou utilizando o plugin: npm i cypress-plugin-api
 
-    buscaProduto(ID){
+    buscaProduto(ID) {
         cy.api({
             url: `${BASEURL1}/${ID}`,
-            method:'GET',
+            method: 'GET',
         })
-   };
+    };
 
-    AssertProduto(ID, produto){
+    AssertProduto(ID, produto) {
         cy.api({
             url: `${BASEURL1}/${ID}`,
-            method:'GET',
-        }).then(res => 
-            expect(res.body.productName).be.eq(`${produto}`))
+            method: 'GET',
+        }).then(res => expect(res.body.productName).be.eq(`${produto}`))
     }
 
-    assertStatusCode(ID){
+    assertStatusCode(ID) {
         cy.api({
             url: `${BASEURL1}/${ID}`,
-            method:'GET',
+            method: 'GET',
         }).then(res => {
             expect(res.status).be.eq(200)
         })
     }
 
-    criaNovaConta(email, nome, sobreNome, nomeLogin, telefone, password){
+    criaNovaConta(email, nome, sobreNome, nomeLogin, telefone, password) {
 
-         email = faker.internet.email()
-         nome = faker.internet.userName()
-         sobreNome = faker.internet.domainName()
-         nomeLogin = faker.internet.displayName()
+        email = faker.internet.email()
+        nome = faker.internet.userName()
+        sobreNome = faker.internet.domainName()
+        nomeLogin = faker.internet.displayName()
 
         cy.api({
             url: `${BASEURL2}`,
-            method:'POST',
-            headers: {"content-type": "application/json"
-                },
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
             body: {
                 accountType: "USER",
                 address: "zxczxc",
@@ -62,11 +62,11 @@ class ShoppingOnline_API {
         })
     }
 
-    realizarLogin(email, loginPassword, loginUser){
+    realizarLogin(email, loginPassword, loginUser) {
 
         cy.api({
             url: `https://www.advantageonlineshopping.com/accountservice/accountrest/api/v1/login`,
-            method:'POST',
+            method: 'POST',
             body: {
                 email: `${email}`,
                 loginPassword: `${loginPassword}`,
@@ -79,35 +79,35 @@ class ShoppingOnline_API {
         })
     }
 
-    atualizoProduto(){
+    atualizoProduto() {
 
         cy.get('@USERID').then(USERID => {
             return USERID
         }).then(userId => {
-            userId 
+            userId
             console.log(userId)
             cy.get('@TOKEN').then(TOKEN => {
                 return TOKEN
             }).then(token => {
                 console.log(token)
                 cy.api({
-                    
+
                     url: `https://www.advantageonlineshopping.com/catalog/api/v1/product/image/${userId}/{source}/{color}`,
                     method: 'PUT',
-                    headers: {Authorization: `Bearer ${token}`},
-                    body:{
+                    headers: { Authorization: `Bearer ${token}` },
+                    body: {
                         "attributes": [
                             {
-                            "attributeName": "OMPATIBILITY",
-                            "attributeValue": "Compatible with most notebook PCs, netbooks, tablets, mobile phones, and MP3 players with a 3.5 mm port available."
+                                "attributeName": "OMPATIBILITY",
+                                "attributeValue": "Compatible with most notebook PCs, netbooks, tablets, mobile phones, and MP3 players with a 3.5 mm port available."
                             }
                         ],
                         "categoryId": 2,
                         "colors": [
                             {
-                            "code": "414141",
-                            "inStock": 0,
-                            "name": "BLACK"
+                                "code": "414141",
+                                "inStock": 0,
+                                "name": "BLACK"
                             }
                         ],
                         "description": "eatures on this product will exceeded your expectations.",
@@ -118,13 +118,13 @@ class ShoppingOnline_API {
                         "price": 39.99,
                         "productId": 14,
                         "productName": "ogitech USB Headset H390",
-                        "productStatus": "Active" 
+                        "productStatus": "Active"
                     }
 
                 })
 
             })
-      
+
         })
     }
 
